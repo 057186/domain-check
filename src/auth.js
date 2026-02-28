@@ -31,7 +31,7 @@ export async function handleLogin(request, env) {
             password = formData.get('password');
             if (password === config.password) {
                 const expires = new Date();
-                expires.setDate(expires.getDate() + 7);
+                expires.setDate(expires.getDate() + 30);
                 const headers = new Headers();
                 headers.set('Location', '/');
                 headers.set('Set-Cookie', `auth=${password}; Expires=${expires.toUTCString()}; HttpOnly; Path=/; Secure; SameSite=Lax`);
